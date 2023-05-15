@@ -1,0 +1,44 @@
+#File to register entier sources list for the project 
+#Rules: 
+#     1. Table Names in lowercase 
+#     2. Descriptions is allowed to use capital letters
+#     3.  
+
+version: 2
+
+sources:
+  - name: promo_details
+    description: Webscrapping collecting data about daily promotion items in amazon
+    database: postgres
+    schema: raw
+    tables:
+      - name: raw_promotion_details
+        description: >
+          Promotion Item details
+        columns:
+          - name: item_key
+            description: Key created by md5 hash of the Item name
+            tests: 
+              - unique
+              - not_null
+          - name: item_name
+            description: Item name 
+            tests:
+              - not_null
+      - name: raw_attributes
+        description: >
+          Item attributes, depends of the item characteristics
+      - name: raw_categories
+        description: >
+          Item categorization, depends of the item characteristics
+      - name: raw_details
+        description: >
+          Details about Item like rankings, opinions, model number 
+
+  - name: reference_table_dq
+    database: postgres
+    schema: staging
+    tables:
+      - name: ref_table_promos
+        description: >
+          Details about Item like rankings, opinions, model number 
