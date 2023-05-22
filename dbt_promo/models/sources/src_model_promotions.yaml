@@ -34,6 +34,7 @@ sources:
       - name: raw_details
         description: >
           Details about Item like rankings, opinions, model number 
+      - name: orders
 
   - name: reference_table_dq
     database: postgres

@@ -25,7 +25,7 @@ staging_promo_c3 as (
   select 
   item_key,
   item_name,
-  {{ dbt.replace("price", "'..'", "''") }} as "price",
+  {{ dbt.replace("price", "'..'", "'.'") }} as "price",
   {{ dbt.replace("discount", "'}'", "''") }} as "discount",
   ext_date
   from 
